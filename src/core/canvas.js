@@ -16,6 +16,10 @@ function texture(element) {
     return wrapTexture(Texture.fromElement(element));
 }
 
+function glitch(texture) {
+	return new Glitch(this, texture);
+}
+
 function initialize(width, height) {
     // Go for floating point buffer textures if we can, it'll make the bokeh filter look a lot better
     var type = gl.getExtension('OES_texture_float') ? gl.FLOAT : gl.UNSIGNED_BYTE;
@@ -175,7 +179,18 @@ exports.canvas = function() {
     canvas.vignette = wrap(vignette);
     canvas.vibrance = wrap(vibrance);
     canvas.sepia = wrap(sepia);
-
+    canvas.glitch = wrap(glitch);
+    
     return canvas;
 };
 exports.splineInterpolate = splineInterpolate;
+
+exports.ALPHA = 6406;
+exports.LUMINANCE = 6409;
+exports.LUMINANCE_ALPHA = 6410;
+exports.RGB = 6407;
+exports.RGBA = 6408;
+exports.UNSIGNED_BYTE = 5121;
+exports.UNSIGNED_SHORT_4_4_4_4 = 32819;
+exports.UNSIGNED_SHORT_5_5_5_1 = 32820;
+exports.UNSIGNED_SHORT_5_6_5 = 33635;
