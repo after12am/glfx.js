@@ -10,8 +10,8 @@ header = '''/*
  * glfx.js
  * https://github.com/after12am/glfx.js
  *
- * Copyright 2011 Evan Wallace
- * Copyright 2012 Satoshi Okami
+ * Copyright 2011-2014 Evan Wallace
+ * Copyright 2012-2014 Satoshi Okami
  * Released under the MIT license
  */
 '''
