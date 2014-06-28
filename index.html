@@ -1,31 +1,79 @@
 <!DOCTYPE html>
-<html><head>
-    <title>glfx.js</title>
-    <script type="text/javascript" src="/glfx.js/media/jquery-1.5.1.min.js"></script>
-    <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/glfx.js/media/style.css">
-    <script type="text/javascript" src="/glfx.js/media/common.js"></script>
-    <script type="text/javascript" src="/glfx.js/glfx.js"></script>
-    <script type="text/javascript" src="/glfx.js/media/index.js"></script>
+<html>
 
-</head><body>
-    <h1><a href="/glfx.js/">glfx.js</a></h1>
-    <h2>An image effects library for JavaScript</h2>
-    <ul class="nav">
-        <li><a href="/glfx.js/glfx.js">Download</a></li>
-        <li><a href="/glfx.js/demo/">Demo</a></li>
-        <li><a href="/glfx.js/docs/">Documentation</a></li>
-        <li><a href="http://github.com/evanw/glfx.js">Source Code</a></li>
-    </ul>
-    <div class="block">
-    <p>Adjust photos in your browser in realtime with glfx.js, an image effects library powered by WebGL. It uses your graphics card for image effects that would be impossible to apply in real-time with JavaScript alone.</p>
-    <div class="placeholder">
-        <div id="container"><span id="placeholder">Loading...</span></div>
-        <div id="label">Try it: move your mouse over the image!<br>Image credit: <a href="http://www.flickr.com/photos/matthigh/2125630879/">matthigh</a></div>
-    </div>
-    <p>There are two caveats to glfx.js. First, WebGL is a new technology that is only available in the latest browsers and it will be quite a while before the majority of users have it. Second, due to the same origin policy, JavaScript is only allowed to read images that originate from the same domain as the script reading them, so you will have to host the images you modify.</p>
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Glfx.js : An image effects library for JavaScript using WebGL" />
 
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Glfx.js</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/after12am/glfx.js">View on GitHub</a>
+
+          <h1 id="project_title">Glfx.js</h1>
+          <h2 id="project_tagline">An image effects library for JavaScript using WebGL</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/after12am/glfx.js/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/after12am/glfx.js/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
     </div>
-    <div class="footer">Created by <a href="http://madebyevan.com">Evan Wallace</a> in 2011</div>
-</body></html>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+
+<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+
+<pre><code>$ cd your_repo_root/repo_name
+$ git fetch origin
+$ git checkout gh-pages
+</code></pre>
+
+<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+
+<h3>
+<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+
+<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+
+<h3>
+<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+
+<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+
+<h3>
+<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+
+<h3>
+<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Glfx.js maintained by <a href="https://github.com/after12am">after12am</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
