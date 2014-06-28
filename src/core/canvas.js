@@ -7,8 +7,16 @@ function clamp(lo, value, hi) {
 function wrapTexture(texture) {
     return {
         _: texture,
-        loadContentsOf: function(element) { this._.loadContentsOf(element); },
-        destroy: function() { this._.destroy(); }
+        loadContentsOf: function(element) {
+            // Make sure that we're using the correct global WebGL context
+            gl = this._.gl;
+            this._.loadContentsOf(element);
+        },
+        destroy: function() {
+            // Make sure that we're using the correct global WebGL context
+            gl = this._.gl;
+            this._.destroy();
+        }
     };
 }
 
@@ -21,8 +29,21 @@ function glitch(texture) {
 }
 
 function initialize(width, height) {
-    // Go for floating point buffer textures if we can, it'll make the bokeh filter look a lot better
-    var type = gl.getExtension('OES_texture_float') ? gl.FLOAT : gl.UNSIGNED_BYTE;
+    var type = gl.UNSIGNED_BYTE;
+
+    // Go for floating point buffer textures if we can, it'll make the bokeh
+    // filter look a lot better. Note that on Windows, ANGLE does not let you
+    // render to a floating-point texture when linear filtering is enabled.
+    // See http://crbug.com/172278 for more information.
+    if (gl.getExtension('OES_texture_float') && gl.getExtension('OES_texture_float_linear')) {
+        var testTexture = new Texture(100, 100, gl.RGBA, gl.FLOAT);
+        try {
+            // Only use gl.FLOAT if we can render to it
+            testTexture.drawTo(function() { type = gl.FLOAT; });
+        } catch (e) {
+        }
+        testTexture.destroy();
+    }
 
     if (this._.texture) this._.texture.destroy();
     if (this._.spareTexture) this._.spareTexture.destroy();
@@ -102,23 +123,6 @@ function getPixelArray() {
     return array;
 }
 
-// Fix broken toDataURL() methods on some implementations
-function toDataURL(mimeType) {
-    var w = this._.texture.width;
-    var h = this._.texture.height;
-    var array = getPixelArray.call(this);
-    var canvas2d = document.createElement('canvas');
-    var c = canvas2d.getContext('2d');
-    canvas2d.width = w;
-    canvas2d.height = h;
-    var data = c.createImageData(w, h);
-    for (var i = 0; i < array.length; i++) {
-        data.data[i] = array[i];
-    }
-    c.putImageData(data, 0, 0);
-    return canvas2d.toDataURL(mimeType);
-}
-
 function wrap(func) {
     return function() {
         // Make sure that we're using the correct global WebGL context
@@ -154,7 +158,6 @@ exports.canvas = function() {
     canvas.replace = wrap(replace);
     canvas.contents = wrap(contents);
     canvas.getPixelArray = wrap(getPixelArray);
-    canvas.toDataURL = wrap(toDataURL);
 
     // Filter methods
     canvas.brightnessContrast = wrap(brightnessContrast);
