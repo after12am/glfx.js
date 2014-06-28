@@ -2,8 +2,7 @@
  * glfx.js
  * https://github.com/after12am/glfx.js
  *
- * Copyright 2011-2014 Evan Wallace
- * Copyright 2012-2014 Satoshi Okami
+ * Copyright 2011 Evan Wallace
  * Released under the MIT license
  */
 var fx=function(){function o(a,d,c){return Math.max(a,Math.min(d,c))}function u(b){return{_:b,loadContentsOf:function(b){a=this._.gl;this._.loadContentsOf(b)},destroy:function(){a=this._.gl;this._.destroy()}}}function y(a){return u(q.fromElement(a))}function z(a){return new A(this,a)}function B(b,d){var c=a.UNSIGNED_BYTE;if(a.getExtension("OES_texture_float")&&a.getExtension("OES_texture_float_linear")){var e=new q(100,100,a.RGBA,a.FLOAT);try{e.drawTo(function(){c=a.FLOAT})}catch(f){}e.destroy()}this._.texture&&
