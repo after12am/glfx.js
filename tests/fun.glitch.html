@@ -18,6 +18,7 @@
         var texture = canvas.texture(image);
         document.body.appendChild(canvas);
         
+        canvas.draw(texture).update();
         // this shows you how to glich image
         var glitch = canvas.glitch(texture);
         glitch.format(fx.RGBA)           // set pack format

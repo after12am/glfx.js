@@ -118,8 +118,9 @@ function getPixelArray() {
     var h = this._.texture.height;
     var array = new Uint8Array(w * h * 4);
     this._.texture.drawTo(function() {
-        gl.readPixels(0, 0, w, h, gl.RGBA, gl.UNSIGNED_BYTE, array);
+
     });
+    gl.readPixels(0, 0, w, h, gl.RGBA, gl.UNSIGNED_BYTE, array);
     return array;
 }
 
